@@ -5,7 +5,7 @@ from architecture.tokenizer import get_tokenizer
 from datasets import load_dataset
 from tqdm.notebook import tqdm
 batch_size=5
-context_len=8192
+context_len=4000
 
 dataset = load_dataset("roneneldan/TinyStories")
 train_text = " ".join([ex["text"] for ex in dataset['train']])
