@@ -3,7 +3,7 @@ from infrance import generate_text
 import time,os,gc
 import wandb
 from torch.optim.lr_scheduler import LinearLR, SequentialLR, CosineAnnealingLR
-from gptoss.pmodel import Transformer,ModelConfig
+
 from tqdm.notebook import tqdm
 
 def clear_gpu_memory():

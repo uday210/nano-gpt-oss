@@ -27,7 +27,7 @@ def generate_text(model, prompt, max_tokens=100, temperature=0.8, top_k=50):
     
     # Tokenize input
     
-    idx = text_to_token_ids(prompt,tokenizer)
+    idx = text_to_token_ids(prompt,tokenizer).to(device)
     # Generate
     for _ in range(max_tokens):
         idx_cond = idx[-context_len:]
