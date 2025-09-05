@@ -142,35 +142,9 @@ The system will automatically detect and utilize available GPU resources. To tra
 
 ### Why nano GPT-OSS is better than nano GPT2
 
----
+## 1. Loss Curves Analysis
 
-## 1. Training & Validation Loss
-
-| loss | Training Loss| Validation Loss | Num Heads | Trf BLock | Hidden Dim |
-|--------|---------|---------|----------|----------|----------|
-| GPT-OSS | **1.981** | **1.682** | 12 | 12 | 1020 |
-| GPT2 | 3.124 | 2.747 | 12 | 12 | 1020 |
-| GPT-OSS | **2.034** | **1.725** | 12 | 8 | 1020 |
-| GPT2 | 2.593 | 2.173 | 12 | 8 | 1020 |
-| GPT-OSS | **2.031** | **2.848** | 12 | 6 | 1020 |
-| GPT2 | 2.570 | 2.331 | 12 | 6 | 1020 |
-| GPT-OSS | **1.984** | **1.678** | 8 | 12 | 1024 |
-| GPT2 | 2.445 | 2.036 | 8 | 12 | 1024 |
-| GPT-OSS | **2.212** | **1.901**| 8 | 8 | 1024 |
-| GPT2 | 2.416 | 2.011 | 8 | 8 | 1024 |
-| GPT-OSS | **2.075** | **1.760** | 8 | 6 | 1024 |
-| GPT2 | 2.734 | 2.323 | 8 | 6 | 1024 |
-| GPT-OSS | **1.943** | **1.684** | 6 | 12 | 1020 |
-| GPT2 | 2.748 | 2.366 | 6 | 12 | 1020 |
-| GPT-OSS | **2.014** | **1.767** | 6 | 8 | 1020 |
-| GPT2 | 2.594 | 2.213 | 6 | 8 | 1020 |
-| GPT-OSS | **2.125** | **1.820** | 6 | 6 | 1020 |
-| GPT2 | 2.784 | 2.366 | 6 | 6 | 1020 |
-
----
-## 2. Loss Curves Analysis
-
-### 2.1 Validation Loss Comparison
+### 1.1 Validation Loss Comparison
 
 | Model Size (Layers) | GPT-OSS Val Loss | GPT2 Val Loss | Improvement |
 |---------------------|------------------|---------------|-------------|
@@ -178,18 +152,18 @@ The system will automatically detect and utilize available GPU resources. To tra
 | 8 Layers           | 1.89            | 2.01          | 6.0%        |
 | 12 Layers          | 1.67            | 1.28          | 30.5%       |
 
-### 2.2 Key Observations
+### 1.2 Key Observations
 
 - **Parameter Efficiency**: GPT-OSS consistently achieves better validation loss with the same number of parameters, demonstrating superior parameter efficiency.
 - **Scaling Behavior**: The performance gap between GPT-OSS and GPT2 becomes more pronounced with larger model sizes, with GPT-OSS showing a 30.5% improvement in the 12-layer configuration.
 - **Training Stability**: GPT-OSS exhibits more stable training dynamics across different model sizes, as evidenced by smoother loss curves and better convergence.
 
-### 2.3 Performance Analysis
+### 1.3 Performance Analysis
 
 - **6-Layer Models**: GPT-OSS shows significant improvement (12.4% better validation loss) despite having the same architecture.
 - **12-Layer Models**: The advantage of GPT-OSS becomes even more substantial, with a 30.5% improvement in validation loss, suggesting better scaling properties.
 
-### 2.4 Conclusion
+### 1.4 Conclusion
 
 The loss curves and metrics clearly demonstrate that **GPT-OSS** is more parameter-efficient and performs better than the standard **GPT2** model across different model sizes, particularly in larger configurations. This suggests that the architectural improvements in GPT-OSS lead to better learning dynamics and generalization.
 
