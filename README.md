@@ -1,21 +1,58 @@
 <div align="center">
 
 # 📚 nano-GPT-OSS Language Model
-</div>
 
 **an open-source transformer that balances full-context and sliding-window attention for efficient, scalable LLM training and inference.**
 
-<p align="center">
 <a href="https://pytorch.org"><img src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?logo=pytorch&logoColor=white" alt="PyTorch"></a>
 <a href="https://huggingface.co"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-FFC107?logo=hugging%20face&logoColor=black" alt="Hugging Face"></a>
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License"></a>
-</p>
-
-<div align="center">
 
 ![Val Loss of Gpt oss](assets/val-loss.png)
 
 </div>
+
+## Training & Validation Loss
+
+| loss | Training Loss| Validation Loss | Num Heads | Trf BLock | Hidden Dim |
+|--------|---------|---------|----------|----------|----------|
+| GPT-OSS | **1.981** | **1.682** | 12 | 12 | 1020 |
+| GPT2 | 3.124 | 2.747 | 12 | 12 | 1020 |
+| GPT-OSS | **2.034** | **1.725** | 12 | 8 | 1020 |
+| GPT2 | 2.593 | 2.173 | 12 | 8 | 1020 |
+| GPT-OSS | **2.031** | **2.848** | 12 | 6 | 1020 |
+| GPT2 | 2.570 | 2.331 | 12 | 6 | 1020 |
+| GPT-OSS | **1.984** | **1.678** | 8 | 12 | 1024 |
+| GPT2 | 2.445 | 2.036 | 8 | 12 | 1024 |
+| GPT-OSS | **2.212** | **1.901**| 8 | 8 | 1024 |
+| GPT2 | 2.416 | 2.011 | 8 | 8 | 1024 |
+| GPT-OSS | **2.075** | **1.760** | 8 | 6 | 1024 |
+| GPT2 | 2.734 | 2.323 | 8 | 6 | 1024 |
+| GPT-OSS | **1.943** | **1.684** | 6 | 12 | 1020 |
+| GPT2 | 2.748 | 2.366 | 6 | 12 | 1020 |
+| GPT-OSS | **2.014** | **1.767** | 6 | 8 | 1020 |
+| GPT2 | 2.594 | 2.213 | 6 | 8 | 1020 |
+| GPT-OSS | **2.125** | **1.820** | 6 | 6 | 1020 |
+| GPT2 | 2.784 | 2.366 | 6 | 6 | 1020 |
+
+---
+## Key Improvements of GPT-OSS over GPT-2
+
+### 🏗️ Architecture Enhancements
+- **Mixture of Experts (MoE) in MLP** with a Router → Sparse experts active per token (big model capacity, low active FLOPs)
+- **Gated Router** → Token-dependent routing to experts (shown inside MoE block)
+- **SwiGLU Feed-Forward (FFN) modules** → Modern activation in FFN instead of GELU
+- **Grouped Query Attention + RoPE** → Alternate attention that supports longer context and stable queries
+- **Sliding Window Attention** → Efficient attention pattern that reduces computation while maintaining context
+- **Sink Slots in Attention** → Learned aggregation slots for global context stability
+- **RMSNorm** → More stable normalization layer
+
+### 📊 Performance Improvements
+- **Lower Training Loss** → Better convergence during training
+- **Lower Validation Loss** → Better generalization to unseen data
+- **Lower Memory Usage** → More efficient memory usage during training and inference
+- **Lower Disk Space** → More efficient disk space usage during training and inference
+- **Lower Inference Time** → Faster inference time during inference
 
 ## Dependencies
 - [pytorch](https://pytorch.org) <3
@@ -49,8 +86,8 @@ Once upon a time, there was a big, red ball that could bounce very high...
 
 ## 🚀 Installation
 
-<details>
-<summary>📦 Pip Installation</summary>
+
+### 📦 Pip Installation
 
 ```bash
 # clone project
@@ -69,7 +106,7 @@ pip install -r requirements.txt
 # Install requirements
 pip install -r requirements.txt
 ```
-</details>
+
 
 ## How to run Training
 
@@ -102,8 +139,8 @@ The system will automatically detect and utilize available GPU resources. To tra
 - Model checkpoints are saved in the `checkpoints` directory
 - Training logs can be found in the `logs` directory
 
-<details>
-<summary>Why nano GPT-OSS is better than nano GPT2 </summary>
+
+### Why nano GPT-OSS is better than nano GPT2
 
 ---
 
@@ -215,5 +252,3 @@ The loss curves and metrics clearly demonstrate that **GPT-OSS** is more paramet
 - **Consistency**: GPT-OSS shows less variance in scores (4-6 range) compared to GPT2 (1-6 range), indicating more reliable performance across different model sizes.
 
 ---
-
-</details>
