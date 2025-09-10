@@ -2,7 +2,7 @@
 
 # Nano-GPT-OSS Language Model
 
-**an open-source transformer that balances full-context and sliding-window attention for efficient, scalable LLM training and inference.**
+**An open-source transformer that balances full-context and sliding-window attention for efficient, scalable LLM training and inference.**
 
 <a href="https://pytorch.org"><img src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?logo=pytorch&logoColor=white" alt="PyTorch"></a>
 <a href="https://huggingface.co"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-FFC107?logo=hugging%20face&logoColor=black" alt="Hugging Face"></a>
