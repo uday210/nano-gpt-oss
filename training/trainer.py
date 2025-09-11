@@ -1,5 +1,5 @@
 import torch
-from infrance import generate_text
+from inference import generate_text
 import time,os,gc
 import wandb
 from torch.optim.lr_scheduler import LinearLR, SequentialLR, CosineAnnealingLR
@@ -28,13 +28,7 @@ def calcc(input_batch, target_batch, model,device):
     return total_loss/len(input_batch)
 
 
-
 def calc_loss_batch(input_batch, target_batch, model, device):
-  
-    model=model.to(device)
-    
-    # logits= model(input_batch)
-    # loss= torch.nn.functional.cross_entropy(logits.flatten(0,1),target_batch.flatten())
     loss=calcc(input_batch,target_batch,model,device)
     return loss
 
