@@ -116,7 +116,7 @@ The system will automatically detect and utilize available GPU resources. To tra
 
 1. Navigate to the project directory:
    ```bash
-   cd path/to/nano-gpt-oss
+   cd nano-gpt-oss
    ```
 
 2. Start training with default configuration:
