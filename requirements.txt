@@ -4,3 +4,4 @@ datasets
 tqdm
 wandb
 ipywidgets
+hf_transfer
